@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --lf-bg: #FAFAFA;
+    --lf-surface: #FFFFFF;
+    --lf-primary: #171717;
+    --lf-secondary: #666666;
+    --lf-border: #E7E7E7;
+    --lf-accent: #111111;
+    --lf-success: #2F7D4E;
+    --lf-subtle: #F4F4F4;
+    --lf-highlight: #1D4ED8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* prevent any component from causing page-level horizontal scroll */
+  }
+
+  body {
+    background-color: var(--lf-bg);
+    color: var(--lf-primary);
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  input, textarea, button, select { font-family: inherit; }
+}
+
+@layer utilities {
+  .lf-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .lf-reading { max-width: 680px; }
+
+  .lf-section {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  @media (max-width: 1024px) {
+    .lf-section {
+      padding-top: 88px;
+      padding-bottom: 88px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .lf-section {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+    .lf-container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .lf-hero-callouts {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+  }
+
+  .lf-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lf-secondary);
+  }
+
+  .lf-h1 {
+    font-size: clamp(38px, 5.5vw, 60px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--lf-primary);
+  }
+
+  .lf-h2 {
+    font-size: clamp(28px, 3.8vw, 42px);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--lf-primary);
+  }
+
+  .lf-h3 {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--lf-primary);
+  }
+
+  .lf-body {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--lf-secondary);
+  }
+
+  .lf-body-sm {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--lf-secondary);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #1A56DB;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 22px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 48px;
+    line-height: 1;
+  }
+
+  .btn-primary:hover { background-color: #1648C0; }
+  .btn-primary:active { transform: scale(0.99); }
+  .btn-primary:focus-visible {
+    outline: 2px solid #1A56DB;
+    outline-offset: 3px;
+  }
+
+  /* Mobile full-width CTA utility */
+  @media (max-width: 768px) {
+    .lf-btn-mobile-full {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      text-align: center !important;
+    }
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: transparent;
+    color: var(--lf-primary);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 13px 22px;
+    border-radius: 12px;
+    border: 1.5px solid var(--lf-border);
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 48px;
+    line-height: 1;
+  }
+
+  .btn-secondary:hover {
+    border-color: #B8B8B8;
+    background-color: var(--lf-subtle);
+  }
+
+  .btn-secondary:focus-visible {
+    outline: 2px solid var(--lf-highlight);
+    outline-offset: 3px;
+  }
+
+  .card {
+    background: var(--lf-surface);
+    border: 1.5px solid var(--lf-border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .card-subtle {
+    background: var(--lf-subtle);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--lf-border);
+    margin: 0;
+  }
+
+  /* Responsive visibility */
+  .lf-desktop-only { display: none; }
+  .lf-mobile-only  { display: flex; }
+
+  @media (min-width: 768px) {
+    .lf-desktop-only { display: flex; }
+    .lf-mobile-only  { display: none !important; }
+  }
+
+  /* FAQ accordion */
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item[open] .faq-chevron { transform: rotate(180deg); }
+  .faq-chevron { transition: transform 0.2s; }
+
+  /* Hero grid: two-col on desktop, single col on mobile */
+  .lf-hero-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+
+  @media (max-width: 900px) {
+    /* Collapse hero to single column on tablet — avoids cramped 2-col at 768-900px */
+    .lf-hero-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .lf-hero-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .lf-hero-visual {
+      display: none !important;
+    }
+    /* Before/after: stack vertically on mobile */
+    .lf-before-after-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .lf-before-after-grid > :nth-child(2) {
+      display: none !important;
+    }
+    .lf-before-after-grid > :first-child {
+      border-radius: 16px 16px 0 0 !important;
+    }
+    .lf-before-after-grid > :last-child {
+      border-radius: 0 0 16px 16px !important;
+    }
+  }
+
+  /* Journey steps layout */
+  .lf-journey-steps {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .lf-journey-step {
+    flex: 1;
+    min-width: 0;
+  }
+  .lf-journey-connector {
+    flex-shrink: 0;
+    width: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 52px;
+    color: var(--lf-border);
+  }
+
+  @media (max-width: 900px) {
+    .lf-journey-steps {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .lf-journey-step {
+      flex-basis: calc(33.333% - 6px);
+      min-width: 0;
+    }
+    .lf-journey-connector {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .lf-journey-step {
+      flex-basis: calc(50% - 4px);
+    }
+  }
+
+  /* Floating animation for phone mockup cards */
+  @keyframes lf-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+}
