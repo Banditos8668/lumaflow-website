@@ -1,35 +1,5 @@
-# Dependencies
-node_modules/
-
-# Build output
-dist/
-dist-ssr/
-
-# Local env files
-.env
-.env.local
-.env.*.local
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
+node_modules
+dist
 .DS_Store
-Thumbs.db
-
-# Logs
-*.log
-npm-debug.log*
-public:assets:images/
-
-# Claude Code & agent tooling — never commit
-.claude/
-.agents/
-project-docs/.claude/
-skills-lock.json
-
-# Generated/lumaflow assets — not part of the app
-public/lumaflow/
+.env
+.netlify
