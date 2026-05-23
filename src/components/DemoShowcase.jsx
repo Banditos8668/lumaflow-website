@@ -77,14 +77,35 @@ export default function DemoShowcase() {
           }}>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '-32px' }}>
               <DeviceFrameset device="MacBook Pro" color="silver" zoom={0.895}>
-                <iframe
-                  src={DEMO_URL}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 'none', display: 'block' }}
-                  title="Maison Lumière Beauty Studio Demo"
-                  loading="lazy"
-                />
+                {/*
+                  MacBook screen content area: 960×600px
+                  (content-box sizing: .marvel-device.macbook width/height = content, not total box)
+                  Render demo at 1440px desktop viewport, scaled down to fit 960px.
+                  containerWidth=960, containerHeight=600, scale=960/1440=0.667
+                  iframe height = 600/0.667 = 900px
+                */}
+                <div style={{
+                  width: '960px',
+                  height: '600px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  borderRadius: '4px',
+                }}>
+                  <iframe
+                    src={DEMO_URL}
+                    style={{
+                      width: '1440px',
+                      height: '900px',
+                      border: 'none',
+                      display: 'block',
+                      transform: 'scale(0.667)',
+                      transformOrigin: 'top left',
+                      pointerEvents: 'auto',
+                    }}
+                    title="Maison Lumière Beauty Studio Demo"
+                    loading="lazy"
+                  />
+                </div>
               </DeviceFrameset>
             </div>
           </div>
