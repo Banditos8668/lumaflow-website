@@ -1,9 +1,20 @@
+import { DeviceFrameset } from 'react-device-frameset';
+import 'react-device-frameset/styles/marvel-devices.css';
 import { useLanguage } from '../context/LanguageContext';
 
 const DEMO_URL = 'https://maisonlumiere-demo.online/';
 
 export default function DemoShowcase() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+
+  // Step 1C: updated heading and subline — handled inline to stay within DemoShowcase.jsx only
+  const demoHeadline = lang === 'de'
+    ? 'So sieht ein Geschäft aus, das Buchungen nicht verliert.'
+    : 'This is what a business looks like that does not lose bookings.';
+
+  const demoSubline = lang === 'de'
+    ? 'Scrolle durch die Demo. Echte Leistungen, echte Buchung, echtes Google-Setup.'
+    : 'Scroll through the demo. Real services, real booking flow, real Google structure.';
 
   return (
     <section id="demo" style={{
@@ -13,75 +24,15 @@ export default function DemoShowcase() {
       overflow: 'hidden',
     }}>
       <style>{`
-        .lf-browser-outer {
-          max-width: 960px;
-          margin: 0 auto;
-          border-radius: 12px;
-          overflow: hidden;
-          box-shadow:
-            0 20px 80px rgba(0,0,0,0.12),
-            0 0 0 1px rgba(0,0,0,0.08);
+        /* Responsive visibility */
+        .lf-demo-laptop { display: block; }
+        .lf-demo-phone  { display: none; }
+        @media (max-width: 767px) {
+          .lf-demo-laptop { display: none; }
+          .lf-demo-phone  { display: flex; }
         }
-        .lf-browser-chrome {
-          background: #f0f0f0;
-          height: 44px;
-          display: flex;
-          align-items: center;
-          padding: 0 16px;
-          gap: 10px;
-          border-bottom: 1px solid #ddd;
-          flex-shrink: 0;
-        }
-        .lf-browser-dots {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          flex-shrink: 0;
-        }
-        .lf-browser-dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          flex-shrink: 0;
-        }
-        .lf-browser-urlbar {
-          background: white;
-          border-radius: 6px;
-          padding: 5px 14px;
-          font-size: 12px;
-          color: #555;
-          flex: 1;
-          max-width: 360px;
-          margin: 0 auto;
-          text-align: center;
-          font-family: inherit;
-          user-select: none;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          line-height: 1.4;
-        }
-        .lf-browser-screen {
-          background: white;
-          height: 540px;
-          overflow: hidden;
-          display: block;
-        }
-        .lf-browser-screen iframe {
-          width: 100%;
-          height: 100%;
-          border: none;
-          display: block;
-        }
-        @media (max-width: 768px) {
-          .lf-browser-chrome  { height: 36px; padding: 0 12px; gap: 8px; }
-          .lf-browser-dot     { width: 10px; height: 10px; }
-          .lf-browser-screen  { height: 360px; }
-          .lf-browser-urlbar  { font-size: 11px; padding: 4px 10px; }
-        }
-        @media (max-width: 480px) {
-          .lf-browser-screen { height: 280px; }
-        }
+        /* Suppress the library's 500ms load-in transition */
+        .lf-demo-laptop .marvel-device { transition: none !important; }
       `}</style>
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(16px, 5vw, 40px)' }}>
@@ -100,37 +51,113 @@ export default function DemoShowcase() {
             color: '#171717', lineHeight: 1.15, letterSpacing: '-0.02em',
             marginBottom: 12, maxWidth: 560,
           }}>
-            {t('demo.headline')}
+            {demoHeadline}
           </h2>
           <p style={{ fontSize: 15, color: '#666666', lineHeight: 1.6, maxWidth: 560 }}>
-            {t('demo.subline')}
+            {demoSubline}
           </p>
         </div>
 
-        {/* Browser chrome mockup */}
-        <div className="lf-browser-outer">
-          {/* Chrome bar */}
-          <div className="lf-browser-chrome">
-            <div className="lf-browser-dots">
-              <div className="lf-browser-dot" style={{ backgroundColor: '#FF5F57' }} />
-              <div className="lf-browser-dot" style={{ backgroundColor: '#FFBD2E' }} />
-              <div className="lf-browser-dot" style={{ backgroundColor: '#28C840' }} />
+        {/* ── DESKTOP: MacBook mockup (PATH B — react-device-frameset) ── */}
+        {/*
+          MacBook Pro device: 960×600px layout, keyboard base at top:680px (below body).
+          zoom={0.895} → visual width ~860px (860/960), visual main body height ~537px.
+          Keyboard visual range: ~608–644px from container top (after -32px shift).
+          Container: maxWidth 860px, height 648px (body+gap+keyboard with clearance),
+                     overflow hidden (clips 50px layout dead-space on each horizontal side).
+          Inner flex: justifyContent center (centers 960px layout in 860px), marginTop -32px
+                      (removes ~31.5px dead space at top from transform centering).
+        */}
+        <div className="lf-demo-laptop">
+          <div style={{
+            maxWidth: '860px',
+            margin: '0 auto',
+            overflow: 'hidden',
+            height: '648px',
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '-32px' }}>
+              <DeviceFrameset device="MacBook Pro" color="silver" zoom={0.895}>
+                <iframe
+                  src={DEMO_URL}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 'none', display: 'block' }}
+                  title="Maison Lumière Beauty Studio Demo"
+                  loading="lazy"
+                />
+              </DeviceFrameset>
             </div>
-            <div className="lf-browser-urlbar">
-              🔒 maisonlumiere-demo.online
-            </div>
-          </div>
-          {/* Screen */}
-          <div className="lf-browser-screen">
-            <iframe
-              src={DEMO_URL}
-              title="Maison Lumière Beauty Studio Demo"
-              loading="lazy"
-            />
           </div>
         </div>
 
-        {/* Caption + CTA */}
+        {/* ── MOBILE: Phone mockup ── */}
+        {/*
+          Shell: 260px wide, padding 14px 10px → inner screen 240px.
+          Scale: 240 / 390 = 0.615 (transformOrigin top left).
+          Screen container: 480px tall, overflow hidden → shows top 780px of demo page.
+        */}
+        <div className="lf-demo-phone" style={{ justifyContent: 'center', padding: '0 24px' }}>
+          <div style={{ position: 'relative', width: '260px', flexShrink: 0 }}>
+
+            {/* Outer phone shell */}
+            <div style={{
+              background: 'linear-gradient(145deg, #2a2a2a, #1a1a1a)',
+              borderRadius: '44px',
+              padding: '14px 10px',
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.08), 0 25px 60px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(0,0,0,0.5)',
+              position: 'relative',
+            }}>
+
+              {/* Dynamic Island notch */}
+              <div style={{
+                width: '90px',
+                height: '26px',
+                background: '#000',
+                borderRadius: '13px',
+                margin: '0 auto 10px',
+                position: 'relative',
+                zIndex: 3,
+              }} />
+
+              {/* Screen area */}
+              <div style={{
+                background: '#fff',
+                borderRadius: '32px',
+                overflow: 'hidden',
+                height: '480px',
+                position: 'relative',
+              }}>
+                {/* iframe at 390px viewport width, scaled to 240px display width */}
+                <div style={{
+                  width: '390px',
+                  height: '844px',
+                  transform: 'scale(0.615)',
+                  transformOrigin: 'top left',
+                  pointerEvents: 'auto',
+                }}>
+                  <iframe
+                    src={DEMO_URL}
+                    width="390"
+                    height="844"
+                    style={{ border: 'none', display: 'block' }}
+                    title="Maison Lumière Mobile Demo"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              {/* Volume buttons left — decorative */}
+              <div style={{ position: 'absolute', left: '-3px', top: '80px', width: '3px', height: '32px', background: '#3a3a3a', borderRadius: '2px 0 0 2px' }} />
+              <div style={{ position: 'absolute', left: '-3px', top: '124px', width: '3px', height: '32px', background: '#3a3a3a', borderRadius: '2px 0 0 2px' }} />
+
+              {/* Power button right — decorative */}
+              <div style={{ position: 'absolute', right: '-3px', top: '100px', width: '3px', height: '56px', background: '#3a3a3a', borderRadius: '0 2px 2px 0' }} />
+
+            </div>
+          </div>
+        </div>
+
+        {/* Caption + CTA — outside both mockup wrappers, visible at all breakpoints */}
         <div style={{ textAlign: 'center', marginTop: 32 }}>
           <p style={{
             fontSize: 12, color: '#aaaaaa', margin: 0, lineHeight: 1.6,
