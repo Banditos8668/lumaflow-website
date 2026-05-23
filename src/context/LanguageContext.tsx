@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
 export type Lang = 'en' | 'de';
 
@@ -20,8 +20,8 @@ const translations: Record<Lang, Record<string, string>> = {
     'nav.cta':        'Get free audit',
 
     // Hero
-    'hero.headline':       'Stop losing customers before they book.',
-    'hero.subline':        'Most businesses lose bookings at the same 4 or 5 places. They know the path is broken. But not exactly which step.',
+    'hero.headline':       'Your next booking is being lost right now.',
+    'hero.subline':        'Most businesses lose bookings quietly. Always at the same places.',
     'hero.cta.primary':    'Get free audit',
     'hero.cta.secondary':  'See a live example',
     'hero.badge.1':        'Zürich-based',
@@ -53,9 +53,9 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // Problem section
     'problem.eyebrow':         'The real problem',
-    'problem.headline.1':      'You may not need more marketing.',
-    'problem.headline.2':      'You may need fewer booking leaks.',
-    'problem.body':            "Most businesses don't lose customers because the service is bad. They lose them because the path to book is unclear, slow, or incomplete. The customer moves on and never tells you.",
+    'problem.headline.1':      'The problem is not your marketing.',
+    'problem.headline.2':      'It is your booking path.',
+    'problem.body':            'Most bookings are lost before anyone calls.',
     'problem.0.title':         'No clear next step',
     'problem.0.desc':          "Visitors like what they see but don't know what to do next. No booking link, no clear contact path.",
     'problem.1.title':         'Missed calls disappear',
@@ -150,6 +150,23 @@ const translations: Record<Lang, Record<string, string>> = {
     'step.2.desc':    'Website, Google readiness, missed-call system. Live in 1 week.',
     'step.3.title':   'Bookings improve',
     'step.3.desc':    'You get more confirmed clients. I track what changed.',
+
+    // Journey timeline (HowItWorks replacement)
+    'journey.1.name': 'Search',
+    'journey.1.desc': 'Someone searches for your service nearby.',
+    'journey.2.name': 'Google Maps',
+    'journey.2.desc': 'Do they find you? Is your profile complete?',
+    'journey.3.name': 'Website',
+    'journey.3.desc': 'Does it load fast? Are your services clear?',
+    'journey.4.name': 'Trust',
+    'journey.4.desc': 'Reviews, hours, a tappable phone number.',
+    'journey.5.name': 'Contact',
+    'journey.5.desc': 'They call. You are with a client. What happens?',
+    'journey.6.name': 'Confirmed',
+    'journey.6.desc': 'Booking made. No leak.',
+
+    // Final CTA
+    'finalcta.headline': 'See what you are losing right now. Takes 10 minutes.',
 
     // FAQ section
     'faq.eyebrow':   'FAQ',
@@ -279,7 +296,7 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // Hero
     'hero.headline':       'Ihre nächste Buchung geht gerade verloren.',
-    'hero.subline':        'Die meisten Betriebe verlieren Buchungen an denselben 4 oder 5 Stellen. Der Ablauf ist unterbrochen. Aber nicht jeder weiss genau wo.',
+    'hero.subline':        'Die meisten Betriebe verlieren Buchungen still und unbemerkt. Immer an denselben Stellen.',
     'hero.cta.primary':    'Kostenlose Analyse',
     'hero.cta.secondary':  'Live-Beispiel ansehen',
     'hero.badge.1':        'Zürich-basiert',
@@ -311,9 +328,9 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // Problem section
     'problem.eyebrow':         'Das eigentliche Problem',
-    'problem.headline.1':      'Vielleicht brauchen Sie nicht noch mehr Marketing.',
-    'problem.headline.2':      'Vielleicht brauchen Sie weniger Buchungslücken.',
-    'problem.body':            'Die meisten Betriebe verlieren Kunden nicht wegen schlechtem Service. Sie verlieren sie, weil der Weg zur Buchung unklar, langsam oder unvollständig ist. Der Kunde geht weiter und sagt nichts.',
+    'problem.headline.1':      'Das Problem ist nicht Ihr Marketing.',
+    'problem.headline.2':      'Es ist Ihr Buchungsweg.',
+    'problem.body':            'Die meisten Buchungen gehen verloren, bevor jemand anruft.',
     'problem.0.title':         'Kein klarer nächster Schritt',
     'problem.0.desc':          'Besucher mögen, was sie sehen, wissen aber nicht, was sie als Nächstes tun sollen. Kein Buchungslink, kein klarer Kontaktweg.',
     'problem.1.title':         'Verpasste Anrufe verschwinden',
@@ -408,6 +425,23 @@ const translations: Record<Lang, Record<string, string>> = {
     'step.2.desc':    'Website, Google-Auftritt, Anruf-System. Live in 1 Woche.',
     'step.3.title':   'Buchungen steigen',
     'step.3.desc':    'Sie erhalten mehr bestätigte Kunden. Ich verfolge, was sich verändert hat.',
+
+    // Journey timeline (HowItWorks replacement)
+    'journey.1.name': 'Suche',
+    'journey.1.desc': 'Jemand sucht nach Ihrer Leistung in Ihrer Nähe.',
+    'journey.2.name': 'Google Maps',
+    'journey.2.desc': 'Finden sie Sie? Ist Ihr Profil vollständig?',
+    'journey.3.name': 'Website',
+    'journey.3.desc': 'Lädt die Seite schnell? Sind die Leistungen klar?',
+    'journey.4.name': 'Vertrauen',
+    'journey.4.desc': 'Bewertungen, Öffnungszeiten, direkt anrufbare Nummer.',
+    'journey.5.name': 'Kontakt',
+    'journey.5.desc': 'Rufen sie an und Sie sind besetzt. Was passiert dann?',
+    'journey.6.name': 'Gebucht',
+    'journey.6.desc': 'Buchung bestätigt. Kein Verlust.',
+
+    // Final CTA
+    'finalcta.headline': 'Sehen Sie in 10 Minuten, was Sie gerade verlieren.',
 
     // FAQ section
     'faq.eyebrow':   'FAQ',
@@ -532,8 +566,26 @@ const LanguageContext = createContext<LanguageContextValue>({
   t: (key) => key,
 });
 
+const metaByLang: Record<Lang, { title: string; description: string }> = {
+  en: {
+    title: 'LumaFlow | Stop Losing Bookings Before They Happen',
+    description: 'LumaFlow helps local businesses in Zürich recover missed bookings with a fast mobile website, better Google visibility, and automated missed-call follow-up. Free audit.',
+  },
+  de: {
+    title: 'LumaFlow | Buchungen werden gerade verloren. Finden Sie heraus wo.',
+    description: 'LumaFlow hilft lokalen Betrieben in Zürich, verlorene Buchungen zurückzugewinnen. Schnelle mobile Website, bessere Google-Sichtbarkeit, automatisches Anruf-Follow-up. Kostenlose Analyse.',
+  },
+};
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('en');
+
+  useEffect(() => {
+    const { title, description } = metaByLang[lang];
+    document.title = title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', description);
+  }, [lang]);
 
   const t = (key: string): string =>
     translations[lang][key] ?? translations.en[key] ?? key;

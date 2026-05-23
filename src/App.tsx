@@ -10,6 +10,7 @@ import QuickCheckSection from './components/QuickCheckSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
+import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import StickyMobileCTA from './components/StickyMobileCTA';
 import FloatingButtons from './components/FloatingButtons';
@@ -37,6 +38,7 @@ export default function App() {
         <HowItWorksSection />
         <FAQSection />
         <ContactSection />
+        <FinalCTA />
       </main>
       <Footer />
       <StickyMobileCTA />

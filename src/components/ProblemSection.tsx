@@ -1,20 +1,12 @@
 import type { ReactNode } from 'react';
+import { EyeOff, Smartphone, Link2Off, PhoneMissed } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const leakIcons: ReactNode[] = [
-  <svg key="1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
-  </svg>,
-  <svg key="2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M10.68 13.31a16 16 0 003.41 2.6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7 2 2 0 011.72 2v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.42 19.42 0 01-3.33-2.67m-2.67-3.34a19.79 19.79 0 01-3.07-8.63A2 2 0 014.11 2h3a2 2 0 011.72 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 9.91" />
-    <line x1="23" y1="1" x2="1" y2="23" />
-  </svg>,
-  <svg key="3" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="12" y1="18" x2="12.01" y2="18" />
-  </svg>,
-  <svg key="4" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
-  </svg>,
+  <EyeOff key="1" size={24} strokeWidth={1.5} color="var(--lf-primary)" />,
+  <Smartphone key="2" size={24} strokeWidth={1.5} color="var(--lf-primary)" />,
+  <Link2Off key="3" size={24} strokeWidth={1.5} color="var(--lf-primary)" />,
+  <PhoneMissed key="4" size={24} strokeWidth={1.5} color="var(--lf-primary)" />,
 ];
 
 function LeakIcon({ children }: { children: ReactNode }) {

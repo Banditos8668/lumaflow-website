@@ -1,13 +1,10 @@
 import { useLanguage } from '../context/LanguageContext';
 
+const steps = [1, 2, 3, 4, 5, 6] as const;
+const isLast = (i: number) => i === 6;
+
 export default function HowItWorksSection() {
   const { t } = useLanguage();
-
-  const steps = [0,1,2,3].map((i, idx) => ({
-    number: String(idx + 1).padStart(2, '0'),
-    title: t(`step.${i}.title`),
-    description: t(`step.${i}.desc`),
-  }));
 
   return (
     <section id="how-it-works" className="lf-section" style={{ backgroundColor: 'var(--lf-bg)' }}>
@@ -25,43 +22,67 @@ export default function HowItWorksSection() {
       `}</style>
       <div className="lf-container">
         <p className="lf-label" style={{ marginBottom: 16 }}>{t('how.eyebrow')}</p>
-        <h2 className="lf-h2" style={{ marginBottom: 52, maxWidth: 400 }}>
+        <h2 className="lf-h2" style={{ marginBottom: 48, maxWidth: 400 }}>
           {t('how.headline')}
         </h2>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: 32,
-          position: 'relative',
-        }}>
-          {steps.map((step, i) => (
-            <div key={step.number} style={{ position: 'relative' }}>
-              <div style={{
-                width: 36, height: 36, borderRadius: 9,
-                backgroundColor: i === 0 ? 'var(--lf-primary)' : 'var(--lf-surface)',
-                border: i === 0 ? 'none' : '1.5px solid var(--lf-border)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 12, fontWeight: 700,
-                color: i === 0 ? '#fff' : 'var(--lf-secondary)',
-                flexShrink: 0,
-                marginBottom: 14,
-              }}>
-                {step.number}
+        {/* Vertical timeline */}
+        <div style={{ maxWidth: 640, margin: '0 auto' }}>
+          {steps.map((num) => {
+            const last = isLast(num);
+            const accentColor = last ? '#059669' : 'var(--lf-primary)';
+            const bgColor = last ? '#D1FAE5' : 'var(--lf-surface)';
+            const borderColor = last ? '#6EE7B7' : 'var(--lf-border)';
+            const textColor = last ? '#059669' : 'var(--lf-primary)';
+
+            return (
+              <div key={num} style={{ display: 'flex', gap: 20, position: 'relative' }}>
+                {/* Left: number bubble + vertical connector */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
+                  <div style={{
+                    width: 36, height: 36, borderRadius: '50%',
+                    backgroundColor: bgColor,
+                    border: `1.5px solid ${borderColor}`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 13, fontWeight: 700,
+                    color: accentColor,
+                    flexShrink: 0,
+                  }}>
+                    {String(num).padStart(2, '0')}
+                  </div>
+                  {/* Connector line — hidden on last step */}
+                  {!last && (
+                    <div style={{
+                      width: 1,
+                      flex: 1,
+                      minHeight: 24,
+                      backgroundColor: 'var(--lf-border)',
+                      margin: '4px 0',
+                    }} />
+                  )}
+                </div>
+
+                {/* Right: step content */}
+                <div style={{ paddingBottom: last ? 0 : 28, paddingTop: 6 }}>
+                  <p style={{
+                    fontSize: 15, fontWeight: 600,
+                    color: textColor,
+                    margin: '0 0 4px',
+                    letterSpacing: '-0.01em',
+                  }}>
+                    {t(`journey.${num}.name`)}
+                  </p>
+                  <p style={{
+                    fontSize: 14, lineHeight: 1.55,
+                    color: 'var(--lf-secondary)',
+                    margin: 0,
+                  }}>
+                    {t(`journey.${num}.desc`)}
+                  </p>
+                </div>
               </div>
-              <h3 style={{
-                fontSize: 16, fontWeight: 600, color: 'var(--lf-primary)',
-                marginBottom: 8, letterSpacing: '-0.01em',
-              }}>
-                {step.title}
-              </h3>
-              <p style={{
-                fontSize: 15, lineHeight: 1.6, color: 'var(--lf-secondary)', margin: 0,
-              }}>
-                {step.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="lf-hiw-cta-wrap" style={{ marginTop: 48, paddingTop: 36, borderTop: '1px solid var(--lf-border)', textAlign: 'center' }}>
