@@ -77,7 +77,7 @@ export default function QuickCheckSection() {
               <a href="#contact" style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 backgroundColor: '#1A56DB', color: '#fff',
-                fontSize: 14, fontWeight: 600, padding: '12px 0',
+                fontSize: 15, fontWeight: 600, padding: '12px 0',
                 borderRadius: 10, textDecoration: 'none', minHeight: 46,
                 transition: 'background-color 0.15s',
               }}

@@ -298,4 +298,42 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
   }
+
+  /* ─────────────────────────────────────────────────────────
+     MOBILE TYPOGRAPHY — improved readability on small screens
+     Targets max-width 767px (phone breakpoint).
+     Shared class overrides handle the CSS-based sizes.
+     !important is used only where inline styles need overriding.
+     ───────────────────────────────────────────────────────── */
+  @media (max-width: 767px) {
+
+    /* Shared utility upgrades */
+    .lf-body    { font-size: 17px; }
+    .lf-body-sm { font-size: 16px; line-height: 1.6; }
+    .lf-h3      { font-size: 19px; }
+    .btn-primary,
+    .btn-secondary { font-size: 16px; }
+
+    /* iOS form zoom fix — all form controls 16px minimum */
+    input, select, textarea { font-size: 16px !important; }
+
+    /* Contact: labels */
+    #contact label { font-size: 15px !important; line-height: 1.5 !important; }
+
+    /* FAQ: questions feel tappable, answers readable */
+    #faq button span    { font-size: 17px !important; line-height: 1.45 !important; }
+    #faq p              { font-size: 16px !important; line-height: 1.65 !important; }
+
+    /* Before/After: item spans */
+    .lf-before-after-grid span { font-size: 15px !important; line-height: 1.55 !important; }
+
+    /* Quick-check: card title and checklist items */
+    #quick-check p:not(.lf-label) { font-size: 15px !important; line-height: 1.55 !important; }
+
+    /* How it works: step labels and descriptions */
+    #how-it-works p:not(.lf-label) { font-size: 16px !important; line-height: 1.55 !important; }
+
+    /* Sticky mobile CTA */
+    .lf-sticky-cta-btn { font-size: 16px !important; }
+  }
 }

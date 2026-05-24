@@ -77,7 +77,7 @@ export default function Footer() {
                 }}
               />
             </a>
-            <p style={{ fontSize: 14, color: 'var(--lf-secondary)', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: 15, color: 'var(--lf-secondary)', lineHeight: 1.6, margin: 0 }}>
               {t('footer.tagline')}
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function Footer() {
           <nav style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
             {footerLinks.map((link) => (
               <a key={link.href} href={link.href} style={{
-                fontSize: 14, color: 'var(--lf-secondary)', textDecoration: 'none',
+                fontSize: 15, color: 'var(--lf-secondary)', textDecoration: 'none',
                 padding: '4px 10px', borderRadius: 6, transition: 'color 0.15s',
               }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--lf-primary)'; }}
@@ -118,11 +118,11 @@ export default function Footer() {
           display: 'flex', flexWrap: 'wrap', gap: 16,
           justifyContent: 'space-between', alignItems: 'center',
         }}>
-          <p style={{ fontSize: 13, color: 'var(--lf-secondary)', margin: 0 }}>
+          <p style={{ fontSize: 14, color: 'var(--lf-secondary)', margin: 0 }}>
             © {new Date().getFullYear()} {t('footer.copyright')}
           </p>
           <LangSwitcher lang={lang} setLang={setLang} />
-          <p style={{ fontSize: 13, color: 'var(--lf-secondary)', margin: 0 }}>
+          <p style={{ fontSize: 14, color: 'var(--lf-secondary)', margin: 0 }}>
             {t('footer.byline')}
           </p>
         </div>

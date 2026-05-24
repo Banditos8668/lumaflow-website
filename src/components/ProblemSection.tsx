@@ -86,10 +86,10 @@ export default function ProblemSection() {
                   {t('problem.leak.label')} {String(i + 1).padStart(2, '0')}
                 </p>
               </div>
-              <h3 style={{ fontSize: 15, fontWeight: 600, color: 'var(--lf-primary)', marginBottom: 8, letterSpacing: '-0.01em' }}>
+              <h3 style={{ fontSize: 16, fontWeight: 600, color: 'var(--lf-primary)', marginBottom: 8, letterSpacing: '-0.01em' }}>
                 {problem.title}
               </h3>
-              <p className="lf-body-sm" style={{ margin: 0, fontSize: 13 }}>
+              <p className="lf-body-sm" style={{ margin: 0 }}>
                 {problem.description}
               </p>
             </div>
@@ -131,10 +131,10 @@ export default function ProblemSection() {
                   {nicheIcons[i]}
                 </div>
                 <div>
-                  <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--lf-primary)', margin: '0 0 4px' }}>
+                  <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--lf-primary)', margin: '0 0 4px' }}>
                     {niche.title}
                   </p>
-                  <p style={{ fontSize: 13, color: 'var(--lf-secondary)', margin: 0, lineHeight: 1.5 }}>
+                  <p style={{ fontSize: 14, color: 'var(--lf-secondary)', margin: 0, lineHeight: 1.5 }}>
                     {niche.desc}
                   </p>
                 </div>

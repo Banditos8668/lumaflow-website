@@ -143,7 +143,7 @@ export default function PricingSection() {
                     padding: '10px 14px',
                     marginBottom: 14,
                   }}>
-                    <p style={{ fontSize: 14, lineHeight: 1.6, color: BLUE, margin: 0 }}>
+                    <p style={{ fontSize: 15, lineHeight: 1.6, color: BLUE, margin: 0 }}>
                       {t('pricing.moneymath')}
                     </p>
                   </div>
@@ -151,7 +151,7 @@ export default function PricingSection() {
 
                 {/* Tagline */}
                 <p style={{
-                  fontSize: 14, lineHeight: 1.6,
+                  fontSize: 15, lineHeight: 1.6,
                   color: 'var(--lf-secondary)',
                   marginBottom: 20,
                 }}>
@@ -183,7 +183,7 @@ export default function PricingSection() {
                           backgroundColor: isFeatured ? BLUE : 'var(--lf-primary)',
                           marginTop: 7,
                         }} />
-                        <span style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--lf-secondary)' }}>
+                        <span style={{ fontSize: 15, lineHeight: 1.6, color: 'var(--lf-secondary)' }}>
                           {featureText}
                         </span>
                       </li>
@@ -196,7 +196,7 @@ export default function PricingSection() {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   marginTop: 'auto',
                   height: 50, padding: '0 24px', borderRadius: 12,
-                  fontSize: 15, fontWeight: 500, lineHeight: 1,
+                  fontSize: 16, fontWeight: 500, lineHeight: 1,
                   textDecoration: 'none',
                   transition: 'all 0.15s',
                   backgroundColor: isFeatured ? BLUE : 'transparent',

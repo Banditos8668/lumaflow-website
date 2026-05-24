@@ -17,22 +17,23 @@ const translations: Record<Lang, Record<string, string>> = {
     'nav.pricing':    'Pricing',
     'nav.faq':        'FAQ',
     'nav.contact':    'Contact',
-    'nav.cta':        'Get free audit',
+    'nav.cta':        'Book your free audit',
 
     // Hero
-    'hero.headline':       'Your next booking is being lost right now.',
+    'hero.headline':       'Your offer is right. The path to booking it is not.',
     'hero.subline':        'Most businesses lose bookings quietly. Always at the same places.',
-    'hero.cta.primary':    'Get free audit',
-    'hero.cta.secondary':  'See a live example',
+    'hero.cta.primary':    'Book your free audit',
+    'hero.cta.secondary':  'See the demo',
     'hero.badge.1':        'Zürich-based',
     'hero.badge.2':        'Mobile-first',
     'hero.badge.3':        'Website · Google · Bookings',
-    'hero.callout.1':      '28 businesses audited in Zürich. All had the same 3 problems.',
+    'hero.trust':          'Based in Zürich. Personally reviewed. Clear next steps within 24 hours.',
+    'hero.callout.1':      '',
     'hero.callout.2':      'Most lost bookings happen before anyone calls.',
-    'hero.callout.3':      'Avg. 4 new bookings per month after launch.',
+    'hero.callout.3':      '',
 
     // Sticky CTA
-    'sticky.cta': 'Get free audit',
+    'sticky.cta': 'Book your free audit',
 
     // Before/After section
     'before.label':       'The difference',
@@ -76,10 +77,14 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // Demo section
     'demo.eyebrow':   'LIVE DEMO',
-    'demo.headline':  'See what a booking-ready business looks like',
-    'demo.subline':   'A real demo site showing services, trust signals, mobile booking, and local search structure in one clear flow.',
+    'demo.headline':  'See what a booking-ready website looks like',
+    'demo.subline':   'A real example showing how services, trust, mobile booking, and clear user flow work together.',
+    'demo.bullet.1':  'Clear services and pricing',
+    'demo.bullet.2':  'Booking CTA visible early',
+    'demo.bullet.3':  'Mobile-first for local customers',
+    'demo.note':      'Demo uses Maison Lumière as an example business.',
     'demo.caption':   'Demo example: Maison Lumière Beauty Studio, Zürich. Built to show how LumaFlow turns a local business into a booking-ready online presence.',
-    'demo.cta':       'See the live demo',
+    'demo.cta':       'See the demo',
 
     // Solution section
     'solution.eyebrow':      'WHAT I FIX',
@@ -91,7 +96,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'solution.card2.copy':   'Your website and Google profile work together so customers can find you, understand you, and contact you faster.',
     'solution.card3.title':  'Missed-call recovery',
     'solution.card3.copy':   'If you miss a call, the customer still gets a fast follow-up instead of disappearing to another provider.',
-    'solution.cta':          'Get free audit',
+    'solution.cta':          'Book your free audit',
 
     // Pricing section
     'pricing.eyebrow':              'Packages',
@@ -99,7 +104,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'pricing.section.subline':      'Every project starts with a free audit so you know exactly what makes sense before you commit.',
     'pricing.badge':                'Most popular',
     'pricing.from':                 'from',
-    'pricing.cta':                  'Get free audit',
+    'pricing.cta':                  'Book your free audit',
     'pricing.tier.localPresence':   'Local Presence',
     'pricing.tier.bookingWebsite':  'Booking Website',
     'pricing.tier.fullRecovery':    'Full Booking Recovery System',
@@ -135,13 +140,13 @@ const translations: Record<Lang, Record<string, string>> = {
     'quickcheck.item.4':     'Site loads slowly or looks broken on a phone screen',
     'quickcheck.item.5':     'Missed calls go unanswered with no automatic follow-up',
     'quickcheck.item.6':     'No online booking. Clients must call or message to book.',
-    'quickcheck.cta':        'Get free audit',
+    'quickcheck.cta':        'Book your free audit',
     'quickcheck.microcopy':  'Takes 10 minutes. No commitment.',
 
     // HowItWorks section
     'how.eyebrow':    'Process',
     'how.headline':   'How it works',
-    'how.cta':        'Get free audit',
+    'how.cta':        'Book your free audit',
     'step.0.title':   'Book a free audit',
     'step.0.desc':    '15-minute call or walk-in. I check your current setup.',
     'step.1.title':   'We find the leaks',
@@ -229,7 +234,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'audit.calls.b1':            'Missed calls during sessions have no automatic follow-up',
     'audit.calls.b2':            'Callers move on within 2 minutes if nobody responds',
     'audit.calls.b3':            'You lose bookings you will never know about',
-    'audit.cta.text':            'Get free audit',
+    'audit.cta.text':            'Book your free audit',
     'audit.disclaimer':          '10 minutes. No commitment. I show you exactly what to fix.',
     'audit.reset':               'That is not quite right. Go back.',
 
@@ -263,7 +268,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'contact.form.message':              'Anything else',
     'contact.form.message.placeholder':  "What's your main challenge right now?",
     'contact.form.required':             'Required fields',
-    'contact.form.submit':               'Get free audit',
+    'contact.form.submit':               'Send audit request',
     'contact.form.submitting':           'Sending...',
     'contact.form.disclaimer':           'I reply within 24 hours. No spam.',
     'contact.form.phone.error':          'Phone number is required.',
@@ -273,7 +278,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Footer
     'footer.tagline':          'Booking recovery and customer growth for local businesses in Zürich and Switzerland.',
     'footer.contact.label':    'Get in touch',
-    'footer.cta':              'Get free audit',
+    'footer.cta':              'Book your free audit',
     'footer.copyright':        'LumaFlow. Zürich, Switzerland.',
     'footer.byline':           'Mobile-first websites, Google visibility, and booking recovery for local businesses.',
     'footer.link.home':        'Home',
@@ -292,22 +297,23 @@ const translations: Record<Lang, Record<string, string>> = {
     'nav.pricing':    'Preise',
     'nav.faq':        'FAQ',
     'nav.contact':    'Kontakt',
-    'nav.cta':        'Kostenlose Analyse',
+    'nav.cta':        'Kostenlose Analyse buchen',
 
     // Hero
-    'hero.headline':       'Ihre nächste Buchung geht gerade verloren.',
+    'hero.headline':       'Ihr Angebot stimmt. Der Weg zur Buchung nicht.',
     'hero.subline':        'Die meisten Betriebe verlieren Buchungen still und unbemerkt. Immer an denselben Stellen.',
-    'hero.cta.primary':    'Kostenlose Analyse',
-    'hero.cta.secondary':  'Live-Beispiel ansehen',
+    'hero.cta.primary':    'Kostenlose Analyse buchen',
+    'hero.cta.secondary':  'Live-Demo ansehen',
     'hero.badge.1':        'Zürich-basiert',
     'hero.badge.2':        'Mobile-first',
     'hero.badge.3':        'Website · Google · Buchungen',
-    'hero.callout.1':      '28 Betriebe aus Zürich analysiert. Alle hatten dieselben 3 Probleme.',
+    'hero.trust':          'Aus Zürich. Persönlich geprüft. Klare nächste Schritte innerhalb von 24 Stunden.',
+    'hero.callout.1':      '',
     'hero.callout.2':      'Die meisten verlorenen Buchungen passieren, bevor jemand anruft.',
-    'hero.callout.3':      'Durchschnittlich 4 neue Buchungen pro Monat nach dem Launch.',
+    'hero.callout.3':      '',
 
     // Sticky CTA
-    'sticky.cta': 'Kostenlose Analyse',
+    'sticky.cta': 'Kostenlose Analyse buchen',
 
     // Before/After section
     'before.label':       'Der Unterschied',
@@ -351,8 +357,12 @@ const translations: Record<Lang, Record<string, string>> = {
 
     // Demo section
     'demo.eyebrow':   'LIVE-DEMO',
-    'demo.headline':  'So kann ein buchungsbereites Geschäft aussehen',
-    'demo.subline':   'Eine Demo-Seite mit Leistungen, Vertrauenselementen, mobiler Buchung und lokaler Google-Struktur in einem klaren Ablauf.',
+    'demo.headline':  'So kann eine buchungsbereite Website aussehen',
+    'demo.subline':   'Ein echtes Beispiel, das zeigt, wie Leistungen, Vertrauen, mobile Buchung und klare Nutzerführung zusammenwirken.',
+    'demo.bullet.1':  'Leistungen und Preise schnell erfassbar',
+    'demo.bullet.2':  'Buchung früh sichtbar',
+    'demo.bullet.3':  'Mobil optimiert für lokale Kundschaft',
+    'demo.note':      'Demo basiert auf Maison Lumière als Beispielgeschäft.',
     'demo.caption':   'Demo-Beispiel: Maison Lumière Beauty Studio, Zürich. Gebaut, um zu zeigen, wie LumaFlow ein lokales Geschäft online buchungsbereit macht.',
     'demo.cta':       'Live-Demo ansehen',
 
@@ -366,7 +376,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'solution.card2.copy':   'Website und Google-Profil arbeiten zusammen, damit Kunden Sie schneller finden, verstehen und kontaktieren.',
     'solution.card3.title':  'Rückgewinnung verpasster Anrufe',
     'solution.card3.copy':   'Wenn Sie einen Anruf verpassen, erhält der Kunde trotzdem eine schnelle Rückmeldung statt zum nächsten Anbieter zu wechseln.',
-    'solution.cta':          'Kostenlose Analyse',
+    'solution.cta':          'Kostenlose Analyse buchen',
 
     // Pricing section
     'pricing.eyebrow':              'Pakete',
@@ -374,7 +384,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'pricing.section.subline':      'Jedes Projekt beginnt mit einer kostenlosen Analyse, damit Sie genau wissen, was sinnvoll ist, bevor Sie sich festlegen.',
     'pricing.badge':                'Am beliebtesten',
     'pricing.from':                 'ab',
-    'pricing.cta':                  'Kostenlose Analyse',
+    'pricing.cta':                  'Kostenlose Analyse buchen',
     'pricing.tier.localPresence':   'Lokale Präsenz',
     'pricing.tier.bookingWebsite':  'Buchungswebsite',
     'pricing.tier.fullRecovery':    'Komplettes Buchungs-Recovery-System',
@@ -410,13 +420,13 @@ const translations: Record<Lang, Record<string, string>> = {
     'quickcheck.item.4':     'Seite lädt langsam oder sieht auf dem Handy fehlerhaft aus',
     'quickcheck.item.5':     'Verpasste Anrufe ohne automatische Rückmeldung',
     'quickcheck.item.6':     'Keine Online-Buchung. Kunden müssen anrufen oder schreiben.',
-    'quickcheck.cta':        'Kostenlose Analyse',
+    'quickcheck.cta':        'Kostenlose Analyse buchen',
     'quickcheck.microcopy':  'Dauert 10 Minuten. Keine Verpflichtung.',
 
     // HowItWorks section
     'how.eyebrow':    'Ablauf',
     'how.headline':   'So funktioniert es',
-    'how.cta':        'Kostenlose Analyse',
+    'how.cta':        'Kostenlose Analyse buchen',
     'step.0.title':   'Kostenlose Analyse anfragen',
     'step.0.desc':    '15-Minuten-Gespräch. Ich prüfe Ihre aktuelle Situation.',
     'step.1.title':   'Wir finden die Lücken',
@@ -504,7 +514,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'audit.calls.b1':            'Verpasste Anrufe während Sitzungen haben keine automatische Nachricht',
     'audit.calls.b2':            'Anrufer gehen weiter, wenn innerhalb von 2 Minuten niemand antwortet',
     'audit.calls.b3':            'Sie verlieren Buchungen, von denen Sie nie erfahren',
-    'audit.cta.text':            'Kostenlose Analyse',
+    'audit.cta.text':            'Kostenlose Analyse buchen',
     'audit.disclaimer':          '10 Minuten. Keine Verpflichtung. Ich zeige Ihnen genau, was zu beheben ist.',
     'audit.reset':               'Das trifft nicht ganz zu. Zurück.',
 
@@ -518,7 +528,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'contact.trust.1':          'Kostenlos. Keine Verpflichtung.',
     'contact.trust.2':          'Dauert nur 10 Minuten.',
     'contact.trust.3':          'Kein Verkaufsgespräch beim ersten Kontakt.',
-    'contact.form.title':                'Analyse anfragen',
+    'contact.form.title':                'Kostenlose Analyse buchen',
     'contact.form.name':                 'Name',
     'contact.form.name.optional':        '(optional)',
     'contact.form.name.placeholder':     'Anna Müller',
@@ -538,7 +548,7 @@ const translations: Record<Lang, Record<string, string>> = {
     'contact.form.message':              'Sonstiges',
     'contact.form.message.placeholder':  'Was ist Ihre grösste Herausforderung?',
     'contact.form.required':             'Pflichtfelder',
-    'contact.form.submit':               'Kostenlose Analyse',
+    'contact.form.submit':               'Analyse senden',
     'contact.form.submitting':           'Wird gesendet...',
     'contact.form.disclaimer':           'Ich melde mich innerhalb von 24 Stunden. Kein Spam.',
     'contact.form.phone.error':          'Telefonnummer ist erforderlich.',
@@ -548,7 +558,7 @@ const translations: Record<Lang, Record<string, string>> = {
     // Footer — Home stays "Home" per spec
     'footer.tagline':          'Buchungsoptimierung und Kundengewinnung für lokale Geschäfte in Zürich und der Schweiz.',
     'footer.contact.label':    'Kontakt',
-    'footer.cta':              'Kostenlose Analyse',
+    'footer.cta':              'Kostenlose Analyse buchen',
     'footer.copyright':        'LumaFlow. Zürich, Schweiz.',
     'footer.byline':           'Mobile-first Websites, Google-Sichtbarkeit und Buchungsoptimierung für lokale Geschäfte.',
     'footer.link.home':        'Home',

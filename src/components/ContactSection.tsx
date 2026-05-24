@@ -6,7 +6,7 @@ type FormState = 'idle' | 'submitting' | 'success';
 const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '11px 14px',
-  fontSize: 14,
+  fontSize: 16, /* 16px minimum — prevents iOS auto-zoom on focus */
   color: 'var(--lf-primary)',
   backgroundColor: 'var(--lf-bg)',
   border: '1.5px solid var(--lf-border)',
@@ -24,7 +24,7 @@ const inputErrorStyle: React.CSSProperties = {
 
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: 13,
+  fontSize: 15,
   fontWeight: 600,
   color: 'var(--lf-primary)',
   marginBottom: 6,
