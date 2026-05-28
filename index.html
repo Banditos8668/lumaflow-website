@@ -65,6 +65,24 @@
     </script>
   </head>
   <body>
+    <!--
+      Netlify Forms bot-detection: this hidden form is parsed at build time
+      so Netlify knows about every field. The React form submits to this endpoint.
+    -->
+    <form name="kostenlose-analyse" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="bot-field" />
+      <input type="text"     name="geschaeftsname" />
+      <input type="text"     name="ihr-name" />
+      <input type="email"    name="email" />
+      <input type="tel"      name="telefon" />
+      <input type="text"     name="website" />
+      <input type="text"     name="google-maps" />
+      <select name="wie-buchen"><option value=""></option></select>
+      <textarea name="was-verbessern"></textarea>
+      <input type="text"     name="kontaktmethode" />
+      <input type="checkbox" name="datenschutz" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import NavBar from './components/NavBar';
 import HeroSection from './components/HeroSection';
@@ -14,8 +15,23 @@ import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import StickyMobileCTA from './components/StickyMobileCTA';
 import FloatingButtons from './components/FloatingButtons';
+import FreeAuditPage from './pages/FreeAuditPage';
 
 export default function App() {
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const onPop = () => setPath(window.location.pathname);
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  // /free-audit route — standalone page, no LanguageProvider nav/footer
+  if (path === '/free-audit') {
+    return <FreeAuditPage />;
+  }
+
+  // Default: main landing page
   return (
     <LanguageProvider>
       <style>{`
